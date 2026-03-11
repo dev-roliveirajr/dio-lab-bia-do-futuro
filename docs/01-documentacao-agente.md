@@ -5,39 +5,45 @@
 ### Problema
 > Qual problema financeiro seu agente resolve?
 
-[Sua descrição aqui]
+Clientes tomam decisões financeiras sem visão preditiva do impacto futuro, resultando em endividamento e falta de planejamento.
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+O agente monitora o contexto financeiro do cliente, antecipa riscos e oportunidades e coconstrói simulações personalizadas com base em dados validados.
+
+- Prevê fluxo de caixa futuro
+- Identifica padrões comportamentais
+- Gera recomendações explicáveis e seguras
 
 ### Público-Alvo
 > Quem vai usar esse agente?
 
-[Sua descrição aqui]
+Adultos economicamente ativos que utilizam crédito com frequência e desejam maior controle e previsibilidade financeira.
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+Luma 
 
 ### Personalidade
 > Como o agente se comporta? (ex: consultivo, direto, educativo)
 
-[Sua descrição aqui]
+Educador, preditivo, consultivo e orientado a decisões baseadas em dados.
 
 ### Tom de Comunicação
 > Formal, informal, técnico, acessível?
 
-[Sua descrição aqui]
+Acessível e claro, com segurança técnica sem ser excessivamente formal.
 
 ### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+- Saudação: “Olá! Analisei seu cenário financeiro e identifiquei alguns pontos importantes para você.”
+
+- Confirmação: “Entendi. Vou simular esse cenário para avaliarmos o impacto.”
+
+- Erro/Limitação: “Não encontrei dados suficientes para essa análise; posso refazer a simulação com mais informações.”
 
 ---
 
@@ -47,11 +53,11 @@
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
+    A[Usuário] -->|Mensagem| B[Interface]
     B --> C[LLM]
     C --> D[Base de Conhecimento]
     D --> C
-    C --> E[Validação]
+    C --> E["Validação (Anti-Alucinação)"]
     E --> F[Resposta]
 ```
 
@@ -60,7 +66,7 @@ flowchart TD
 | Componente | Descrição |
 |------------|-----------|
 | Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
+| LLM | [ex: Ollama (Local)] |
 | Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
 | Validação | [ex: Checagem de alucinações] |
 
@@ -78,4 +84,6 @@ flowchart TD
 ### Limitações Declaradas
 > O que o agente NÃO faz?
 
-[Liste aqui as limitações explícitas do agente]
+- Não recomenda investimentos;
+- Não substitui um consultor financeiro certificado;
+- Não julga ou comenta sobre os gastos do usuário;
