@@ -4,7 +4,7 @@
     "categoria": "renda_fixa",
     "risco": "baixo",
     "rentabilidade": "100% da Selic",
-    "aporte_minimo": 30.00,
+    "aporte_minimo": 30.0,
     "indicado_para": "Reserva de emergência e iniciantes"
   },
   {
@@ -12,7 +12,7 @@
     "categoria": "renda_fixa",
     "risco": "baixo",
     "rentabilidade": "102% do CDI",
-    "aporte_minimo": 100.00,
+    "aporte_minimo": 100.0,
     "indicado_para": "Quem busca segurança com rendimento diário"
   },
   {
@@ -20,7 +20,7 @@
     "categoria": "renda_fixa",
     "risco": "baixo",
     "rentabilidade": "95% do CDI",
-    "aporte_minimo": 1000.00,
+    "aporte_minimo": 1000.0,
     "indicado_para": "Quem pode esperar 90 dias (isento de IR)"
   },
   {
@@ -28,7 +28,7 @@
     "categoria": "fundo",
     "risco": "medio",
     "rentabilidade": "CDI + 2%",
-    "aporte_minimo": 500.00,
+    "aporte_minimo": 500.0,
     "indicado_para": "Perfil moderado que busca diversificação"
   },
   {
@@ -36,7 +36,71 @@
     "categoria": "fundo",
     "risco": "alto",
     "rentabilidade": "Variável",
-    "aporte_minimo": 100.00,
+    "aporte_minimo": 100.0,
     "indicado_para": "Perfil arrojado com foco no longo prazo"
+  },
+  {
+    "nome": "Poupança Tradicional",
+    "categoria": "renda_fixa",
+    "risco": "muito_baixo",
+    "rentabilidade": "0.5% a.m. (TR + 0.5%)",
+    "aporte_minimo": 0.01,
+    "indicado_para": "Iniciantes e reserva de emergência"
+  },
+  {
+    "nome": "Tesouro Prefixado",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "rentabilidade": "Taxa pré-fixada",
+    "aporte_minimo": 30.0,
+    "indicado_para": "Quem quer rentabilidade garantida"
+  },
+  {
+    "nome": "Debêntures Incentivadas",
+    "categoria": "renda_fixa",
+    "risco": "medio",
+    "rentabilidade": "5% a 8% a.a.",
+    "aporte_minimo": 1000.0,
+    "indicado_para": "Perfil moderado com isenção de IR"
+  },
+  {
+    "nome": "Fundos Imobiliários (FII)",
+    "categoria": "renda_variavel",
+    "risco": "medio",
+    "rentabilidade": "6% a 10% a.a. (média histórica)",
+    "aporte_minimo": 100.0,
+    "indicado_para": "Quem busca renda passiva com exposição imobiliária"
+  },
+  {
+    "nome": "Ações Diretas",
+    "categoria": "renda_variavel",
+    "risco": "alto",
+    "rentabilidade": "Variável (longo prazo)",
+    "aporte_minimo": 50.0,
+    "indicado_para": "Perfil arrojado com horizonte de investimento longo"
+  },
+  {
+    "nome": "PGBL - Previdência Privada",
+    "categoria": "previdencia",
+    "risco": "medio",
+    "rentabilidade": "Conforme fundo escolhido",
+    "aporte_minimo": 100.0,
+    "indicado_para": "Quem busca benefício fiscal (até 12% de dedução)"
+  },
+  {
+    "nome": "Fundo DI",
+    "categoria": "fundo",
+    "risco": "baixo",
+    "rentabilidade": "98% a 100% do CDI",
+    "aporte_minimo": 100.0,
+    "indicado_para": "Quem quer segurança com liquidez diária"
+  },
+  {
+    "nome": "Fundo de Renda Fixa",
+    "categoria": "fundo",
+    "risco": "medio",
+    "rentabilidade": "CDI + 1,5%",
+    "aporte_minimo": 500.0,
+    "indicado_para": "Perfil conservador buscando diversificação"
   }
 ]

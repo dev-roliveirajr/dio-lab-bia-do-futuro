@@ -9,3 +9,303 @@ data,descricao,categoria,valor,tipo
 2025-10-15,Conta de Luz,moradia,180.00,saida
 2025-10-20,Academia,saude,99.00,saida
 2025-10-25,Combustível,transporte,250.00,saida
+2025-12-28,Reembolso,receita,2916.07,entrada
+2025-12-01,Venda de item,receita,4850.75,entrada
+2025-11-22,Salário,receita,2978.28,entrada
+2025-10-28,Salário,receita,7934.30,entrada
+2025-11-30,Açougue,alimentacao,147.89,saida
+2025-12-03,Bônus,receita,1249.94,entrada
+2025-12-07,Aluguel,moradia,1121.92,saida
+2025-10-22,Delivery,alimentacao,91.98,saida
+2025-11-19,Salário,receita,4124.69,entrada
+2025-11-02,Livros,lazer,37.47,saida
+2025-10-02,Internet,moradia,157.85,saida
+2025-10-09,Reembolso,receita,2328.04,entrada
+2025-12-27,Conta de Água,moradia,971.47,saida
+2025-10-09,Bônus,receita,7271.96,entrada
+2025-12-27,Reembolso,receita,4544.12,entrada
+2025-12-29,Freelance,receita,4396.37,entrada
+2025-10-06,Conta de Luz,moradia,435.89,saida
+2025-12-31,Reembolso,receita,1562.70,entrada
+2025-12-05,Gás,moradia,1223.50,saida
+2025-11-09,Reembolso,receita,4316.51,entrada
+2025-12-16,Feira,alimentacao,293.98,saida
+2025-11-30,Supermercado,alimentacao,222.38,saida
+2025-11-11,Reembolso,receita,1256.58,entrada
+2025-12-11,Venda de item,receita,3834.60,entrada
+2025-12-05,Netflix,lazer,159.15,saida
+2025-11-29,Supermercado,alimentacao,75.85,saida
+2025-10-29,Taxi,transporte,59.60,saida
+2025-10-31,Estacionamento,transporte,10.25,saida
+2025-10-07,Dentista,saude,57.16,saida
+2025-12-11,Bônus,receita,1705.30,entrada
+2025-11-27,Venda de item,receita,1677.41,entrada
+2025-10-11,Freelance,receita,3000.77,entrada
+2025-11-03,Conta de Água,moradia,1044.21,saida
+2025-12-16,Reembolso,receita,3943.90,entrada
+2025-11-30,Freelance,receita,5295.26,entrada
+2025-11-28,Venda de item,receita,6662.65,entrada
+2025-12-01,Metrô,transporte,70.85,saida
+2025-12-02,Bônus,receita,3408.40,entrada
+2025-11-08,Reembolso,receita,3558.57,entrada
+2025-12-24,Reembolso,receita,1744.19,entrada
+2025-10-14,Freelance,receita,2214.89,entrada
+2025-11-09,Feira,alimentacao,123.14,saida
+2025-12-27,Uber,transporte,165.63,saida
+2025-12-07,Viagem,lazer,178.41,saida
+2025-10-24,Venda de item,receita,3609.83,entrada
+2025-12-22,Supplemanto,saude,360.60,saida
+2025-11-04,Salário,receita,4249.49,entrada
+2025-10-14,Netflix,lazer,267.91,saida
+2025-11-26,Manutenção,moradia,434.12,saida
+2025-11-03,Médico,saude,299.55,saida
+2025-11-05,Reembolso,receita,5463.78,entrada
+2025-11-12,Salário,receita,4059.20,entrada
+2025-10-21,Bônus,receita,1503.84,entrada
+2025-10-12,Jogos,lazer,225.79,saida
+2025-11-30,Reembolso,receita,5789.72,entrada
+2025-12-06,Reembolso,receita,3651.76,entrada
+2025-10-14,Delivery,alimentacao,265.27,saida
+2025-10-04,Salário,receita,3362.55,entrada
+2025-11-10,Gás,moradia,829.68,saida
+2025-12-12,Estacionamento,transporte,198.73,saida
+2025-11-07,Gás,moradia,942.04,saida
+2025-12-28,Aluguel,moradia,664.00,saida
+2025-12-07,Academia,saude,417.21,saida
+2025-11-26,Freelance,receita,1577.30,entrada
+2025-11-08,Academia,saude,100.37,saida
+2025-11-01,Padaria,alimentacao,86.40,saida
+2025-11-08,Academia,saude,798.43,saida
+2025-11-13,Dentista,saude,514.19,saida
+2025-12-23,Supplemanto,saude,270.95,saida
+2025-11-05,Açougue,alimentacao,64.88,saida
+2025-10-11,Reembolso,receita,5745.07,entrada
+2025-12-24,Reembolso,receita,7073.92,entrada
+2025-10-03,Freelance,receita,1938.57,entrada
+2025-12-05,Uber,transporte,220.25,saida
+2025-11-19,Venda de item,receita,4700.56,entrada
+2025-10-02,Venda de item,receita,3314.64,entrada
+2025-12-31,Museu,lazer,445.16,saida
+2025-10-18,Taxi,transporte,117.36,saida
+2025-12-07,Internet,moradia,444.56,saida
+2025-10-09,Jogos,lazer,444.32,saida
+2025-10-02,Salário,receita,5745.33,entrada
+2025-12-12,Combustível,transporte,75.47,saida
+2025-10-13,Salário,receita,3942.04,entrada
+2025-12-30,Médico,saude,319.27,saida
+2025-12-03,Viagem,lazer,98.06,saida
+2025-11-07,Museu,lazer,335.99,saida
+2025-11-06,Restaurante,alimentacao,37.44,saida
+2025-12-15,Jogos,lazer,55.72,saida
+2025-10-10,Estacionamento,transporte,98.22,saida
+2025-10-07,Dentista,saude,715.70,saida
+2025-10-04,Venda de item,receita,4687.08,entrada
+2025-11-16,Manutenção,moradia,723.34,saida
+2025-12-27,Livros,lazer,443.42,saida
+2025-12-01,Livros,lazer,149.24,saida
+2025-10-18,Metrô,transporte,134.62,saida
+2025-11-17,Conta de Água,moradia,711.02,saida
+2025-10-26,Bônus,receita,7664.96,entrada
+2025-12-23,Reembolso,receita,5107.66,entrada
+2025-10-15,Reembolso,receita,4864.06,entrada
+2025-12-13,Bônus,receita,2633.51,entrada
+2025-12-28,Plano de saúde,saude,176.57,saida
+2025-11-28,Freelance,receita,7378.81,entrada
+2025-10-24,Internet,moradia,338.77,saida
+2025-12-11,Venda de item,receita,3294.43,entrada
+2025-10-04,Gás,moradia,1250.43,saida
+2025-12-20,Aluguel,moradia,904.83,saida
+2025-12-29,Gás,moradia,1278.15,saida
+2025-12-19,Bônus,receita,5504.87,entrada
+2025-12-28,Bônus,receita,4886.10,entrada
+2025-11-05,Museu,lazer,443.18,saida
+2025-10-19,Venda de item,receita,7259.61,entrada
+2025-10-04,Jogos,lazer,472.90,saida
+2025-11-23,Bônus,receita,3778.72,entrada
+2025-12-20,Salário,receita,1020.33,entrada
+2025-11-10,Combustível,transporte,145.76,saida
+2025-10-04,Plano de saúde,saude,664.22,saida
+2025-11-02,Metrô,transporte,58.33,saida
+2025-12-12,Bônus,receita,3589.81,entrada
+2025-10-14,Farmácia,saude,696.31,saida
+2025-12-14,Taxi,transporte,245.21,saida
+2025-11-15,Padaria,alimentacao,93.51,saida
+2025-11-06,Metrô,transporte,96.42,saida
+2025-10-18,Cinema,lazer,167.88,saida
+2025-10-23,Plano de saúde,saude,681.05,saida
+2025-12-23,Padaria,alimentacao,75.12,saida
+2025-10-06,Combustível,transporte,134.24,saida
+2025-12-12,Salário,receita,5038.95,entrada
+2025-11-24,Jogos,lazer,417.23,saida
+2025-10-05,Reembolso,receita,5137.63,entrada
+2025-12-17,Bônus,receita,6989.41,entrada
+2025-11-11,Gás,moradia,687.91,saida
+2025-11-15,Dentista,saude,182.26,saida
+2025-12-29,Venda de item,receita,4015.77,entrada
+2025-11-29,Freelance,receita,2749.04,entrada
+2025-12-04,Combustível,transporte,138.48,saida
+2025-10-26,Venda de item,receita,1574.86,entrada
+2025-10-13,Reembolso,receita,4981.52,entrada
+2025-11-04,Museu,lazer,489.26,saida
+2025-12-05,Freelance,receita,2881.75,entrada
+2025-12-16,Freelance,receita,6805.52,entrada
+2025-10-23,Médico,saude,598.65,saida
+2025-11-27,Bônus,receita,7208.66,entrada
+2025-11-30,Reembolso,receita,5598.03,entrada
+2025-12-11,Salário,receita,5697.75,entrada
+2025-10-12,Reembolso,receita,3374.79,entrada
+2025-11-27,Plano de saúde,saude,224.34,saida
+2025-12-25,Taxi,transporte,249.75,saida
+2025-10-08,Reembolso,receita,2343.17,entrada
+2025-11-10,Freelance,receita,7800.86,entrada
+2025-10-16,Reembolso,receita,7294.56,entrada
+2025-10-30,Aluguel,moradia,327.88,saida
+2025-10-25,Salário,receita,2161.81,entrada
+2025-11-21,Supplemanto,saude,797.49,saida
+2025-10-14,Reembolso,receita,4353.95,entrada
+2025-12-08,Bônus,receita,6162.04,entrada
+2025-11-11,Uber,transporte,89.50,saida
+2025-11-21,Uber,transporte,170.10,saida
+2025-11-30,Conta de Água,moradia,441.25,saida
+2025-12-02,Salário,receita,7255.89,entrada
+2025-11-16,Reembolso,receita,3912.42,entrada
+2025-10-18,Manutenção,moradia,319.96,saida
+2025-12-10,Museu,lazer,259.29,saida
+2025-12-30,Freelance,receita,6230.34,entrada
+2025-11-22,Dentista,saude,526.39,saida
+2025-12-22,Taxi,transporte,66.26,saida
+2025-10-27,Padaria,alimentacao,63.07,saida
+2025-10-27,Metrô,transporte,247.16,saida
+2025-11-15,Metrô,transporte,144.53,saida
+2025-10-11,Padaria,alimentacao,174.87,saida
+2025-11-12,Salário,receita,2292.30,entrada
+2025-11-11,Padaria,alimentacao,111.22,saida
+2025-11-19,Feira,alimentacao,272.41,saida
+2025-11-29,Padaria,alimentacao,174.84,saida
+2025-10-31,Combustível,transporte,152.51,saida
+2025-12-03,Bônus,receita,5962.52,entrada
+2025-11-09,Restaurante,alimentacao,91.19,saida
+2025-11-03,Venda de item,receita,5099.13,entrada
+2025-12-10,Internet,moradia,129.52,saida
+2025-11-09,Salário,receita,1181.66,entrada
+2025-12-29,Farmácia,saude,660.14,saida
+2025-10-05,Estacionamento,transporte,31.10,saida
+2025-12-08,Jogos,lazer,231.57,saida
+2025-12-02,Aluguel,moradia,478.90,saida
+2025-10-14,Ônibus,transporte,82.18,saida
+2025-10-09,Freelance,receita,7521.09,entrada
+2025-11-26,Spotify,lazer,216.06,saida
+2025-11-17,Combustível,transporte,95.24,saida
+2025-10-29,Freelance,receita,6097.59,entrada
+2025-12-17,Conta de Água,moradia,879.87,saida
+2025-12-12,Viagem,lazer,286.65,saida
+2025-10-15,Salário,receita,2509.25,entrada
+2025-10-07,Academia,saude,116.20,saida
+2025-10-02,Venda de item,receita,1602.86,entrada
+2025-12-29,Reembolso,receita,6451.22,entrada
+2025-11-17,Freelance,receita,7825.54,entrada
+2025-12-29,Viagem,lazer,467.68,saida
+2025-11-21,Delivery,alimentacao,148.38,saida
+2025-12-05,Internet,moradia,366.58,saida
+2025-11-14,Padaria,alimentacao,281.43,saida
+2025-11-29,Bônus,receita,7924.19,entrada
+2025-12-18,Freelance,receita,7669.98,entrada
+2025-10-01,Delivery,alimentacao,260.67,saida
+2025-10-21,Conta de Luz,moradia,865.76,saida
+2025-12-18,Venda de item,receita,4249.60,entrada
+2025-12-16,Venda de item,receita,5833.91,entrada
+2025-10-14,Bônus,receita,5060.80,entrada
+2025-10-25,Dentista,saude,781.82,saida
+2025-12-22,Bônus,receita,2998.13,entrada
+2025-12-19,Delivery,alimentacao,136.88,saida
+2025-12-23,Manutenção,moradia,980.12,saida
+2025-10-27,Salário,receita,2063.41,entrada
+2025-11-17,Ônibus,transporte,197.29,saida
+2025-11-26,Jogos,lazer,238.35,saida
+2025-10-23,Livros,lazer,481.84,saida
+2025-12-19,Internet,moradia,436.74,saida
+2025-12-10,Plano de saúde,saude,751.09,saida
+2025-12-02,Venda de item,receita,4999.53,entrada
+2025-11-07,Freelance,receita,2311.08,entrada
+2025-10-18,Livros,lazer,143.36,saida
+2025-11-20,Feira,alimentacao,154.35,saida
+2025-12-06,Freelance,receita,1164.44,entrada
+2025-10-03,Netflix,lazer,39.39,saida
+2025-12-19,Reembolso,receita,6948.75,entrada
+2025-10-20,Venda de item,receita,1237.03,entrada
+2025-12-10,Conta de Água,moradia,175.32,saida
+2025-12-20,Supplemanto,saude,78.17,saida
+2025-11-15,Salário,receita,4250.62,entrada
+2025-11-04,Netflix,lazer,273.57,saida
+2025-12-24,Freelance,receita,5706.57,entrada
+2025-12-19,Salário,receita,5285.46,entrada
+2025-10-22,Combustível,transporte,155.91,saida
+2025-11-06,Feira,alimentacao,38.86,saida
+2025-11-18,Gás,moradia,621.15,saida
+2025-12-11,Internet,moradia,1288.79,saida
+2025-12-12,Conta de Luz,moradia,186.08,saida
+2025-12-24,Conta de Água,moradia,340.38,saida
+2025-11-03,Bônus,receita,3656.98,entrada
+2025-12-23,Viagem,lazer,481.54,saida
+2025-10-16,Conta de Água,moradia,812.14,saida
+2025-10-05,Livros,lazer,395.07,saida
+2025-11-06,Museu,lazer,284.34,saida
+2025-10-21,Médico,saude,531.29,saida
+2025-12-06,Bônus,receita,5944.33,entrada
+2025-12-25,Bônus,receita,2390.02,entrada
+2025-12-23,Plano de saúde,saude,509.71,saida
+2025-11-10,Cinema,lazer,272.55,saida
+2025-10-06,Reembolso,receita,2168.61,entrada
+2025-11-15,Plano de saúde,saude,503.42,saida
+2025-11-01,Salário,receita,2045.65,entrada
+2025-10-26,Salário,receita,1957.47,entrada
+2025-12-25,Museu,lazer,61.34,saida
+2025-10-30,Estacionamento,transporte,15.52,saida
+2025-11-07,Museu,lazer,141.68,saida
+2025-11-06,Restaurante,alimentacao,193.31,saida
+2025-11-05,Reembolso,receita,1177.86,entrada
+2025-11-18,Reembolso,receita,7845.21,entrada
+2025-10-18,Taxi,transporte,36.17,saida
+2025-10-03,Bônus,receita,3921.26,entrada
+2025-12-04,Salário,receita,5045.40,entrada
+2025-12-29,Delivery,alimentacao,186.64,saida
+2025-11-11,Internet,moradia,740.30,saida
+2025-10-22,Internet,moradia,106.92,saida
+2025-11-24,Feira,alimentacao,224.66,saida
+2025-11-07,Uber,transporte,131.65,saida
+2025-11-08,Freelance,receita,5075.48,entrada
+2025-12-09,Conta de Água,moradia,836.50,saida
+2025-12-22,Venda de item,receita,5505.36,entrada
+2025-10-15,Supermercado,alimentacao,199.46,saida
+2025-11-15,Salário,receita,1417.46,entrada
+2025-10-17,Livros,lazer,35.32,saida
+2025-11-01,Jogos,lazer,404.92,saida
+2025-11-12,Combustível,transporte,222.26,saida
+2025-10-25,Combustível,transporte,176.31,saida
+2025-10-04,Taxi,transporte,117.26,saida
+2025-12-16,Venda de item,receita,1017.04,entrada
+2025-11-19,Salário,receita,6734.20,entrada
+2025-12-24,Aluguel,moradia,568.84,saida
+2025-11-27,Padaria,alimentacao,149.25,saida
+2025-12-30,Salário,receita,6917.37,entrada
+2025-11-02,Estacionamento,transporte,89.20,saida
+2025-11-01,Farmácia,saude,442.65,saida
+2025-12-16,Reembolso,receita,4806.07,entrada
+2025-11-22,Freelance,receita,7851.38,entrada
+2025-11-30,Reembolso,receita,7948.60,entrada
+2025-11-08,Delivery,alimentacao,262.03,saida
+2025-11-10,Metrô,transporte,32.33,saida
+2025-12-15,Combustível,transporte,120.14,saida
+2025-10-06,Venda de item,receita,3372.41,entrada
+2025-11-29,Spotify,lazer,408.69,saida
+2025-12-10,Metrô,transporte,190.54,saida
+2025-11-13,Plano de saúde,saude,772.59,saida
+2025-11-23,Açougue,alimentacao,53.54,saida
+2025-12-07,Taxi,transporte,49.98,saida
+2025-12-05,Salário,receita,4316.35,entrada
+2025-12-02,Reembolso,receita,1312.39,entrada
+2025-12-16,Dentista,saude,337.37,saida
+2025-10-17,Spotify,lazer,205.22,saida
+2025-12-12,Cinema,lazer,497.39,saida
+2025-12-21,Estacionamento,transporte,175.25,saida
+2025-11-07,Reembolso,receita,5279.48,entrada
