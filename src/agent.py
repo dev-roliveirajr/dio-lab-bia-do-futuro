@@ -4,7 +4,7 @@ import json
 import requests
 
 # Load the data
-from config import OLLAMA_URL, MODEL_NAME
+from config import OLLAMA_API_URL, MODEL_NAME
 
 dsperfil = json.load(open('data/perfil_investidor.json'))
 dsprodutos = json.load(open('data/produtos_financeiros.json'))
@@ -75,5 +75,5 @@ def get_response(user_input):
         "stream": False
     }
     
-    response = requests.post(f"{OLLAMA_URL}/api/generate", json=payload)
+    response = requests.post(OLLAMA_API_URL, json=payload)
     return response.json()['response']

@@ -1,17 +1,22 @@
-version: '3.8'
+version: "3.8"
 
 services:
+
   ollama:
     image: ollama/ollama:latest
     container_name: ollama-service
     ports:
-      - "11434:11434"
+      - "${OLLAMA_SERVICE_PORT}:${OLLAMA_SERVICE_PORT}"
+    mem_limit: ${OLLAMA_MEMORY_LIMIT}
     environment:
-      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_HOST=0.0.0.0:${OLLAMA_SERVICE_PORT}
+      - OLLAMA_MODEL_NAME=${OLLAMA_MODEL_NAME}
     volumes:
       - ollama-data:/root/.ollama
       - ./start-ollama.sh:/start-ollama.sh
     entrypoint: ["/bin/bash", "/start-ollama.sh"]
+    env_file:
+      - .env
     restart: unless-stopped
 
   app:
@@ -20,17 +25,20 @@ services:
       dockerfile: Dockerfile
     container_name: luma-agent-app
     ports:
-      - "8501:8501"
+      - "${APP_PORT}:${APP_PORT}"
     depends_on:
       - ollama
+    env_file:
+      - .env
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_SERVICE_URL=${OLLAMA_SERVICE_HOST}:${OLLAMA_SERVICE_PORT}
+      - OLLAMA_MODEL_NAME=${OLLAMA_MODEL_NAME}
+      - OLLAMA_KEEP_ALIVE=${OLLAMA_KEEP_ALIVE}
     volumes:
-      - .:/app
+        - ./src:/app/src
+        - ./data:/app/data
     working_dir: /app
-    command: bash -c "streamlit run src/app.py --server.port 8501 --server.address 0.0.0.0"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    command: streamlit run src/app.py --server.port ${APP_PORT} --server.address 0.0.0.0
     restart: unless-stopped
 
 volumes:
