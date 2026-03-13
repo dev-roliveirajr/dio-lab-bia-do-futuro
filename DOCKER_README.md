@@ -12,7 +12,7 @@ Este documento contém todas as instruções necessárias para rodar a aplicaç�
 
 A aplicação utiliza dois containers:
 
-1. **Container Ollama**: Serviço de LLM rodando isoladamente
+1. **Container Ollama**: Serviço de LLM rodando isoladamente com o carregamento automático do modelo qwen2.5:3b
 2. **Container Application**: Aplicação Streamlit que se conecta ao Ollama
 
 ## Opção 1: Usando Docker Compose (Recomendado)
@@ -34,6 +34,8 @@ services:
       - OLLAMA_HOST=0.0.0.0:11434
     volumes:
       - ollama-data:/root/.ollama
+      - ./start-ollama.sh:/start-ollama.sh
+    entrypoint: ["/bin/bash", "/start-ollama.sh"]
     restart: unless-stopped
 
   app:
@@ -60,6 +62,12 @@ volumes:
 ```
 
 ### 2. Iniciar os containers
+
+Antes de iniciar, torne o script executável:
+
+```bash
+chmod +x start-ollama.sh
+```
 
 ```bash
 # Construir e iniciar os containers
