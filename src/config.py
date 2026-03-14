@@ -3,6 +3,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# parametros para utilização do serviço de LLM
 OLLAMA_SERVICE_URL = f"{os.getenv('OLLAMA_SERVICE_HOST')}:{os.getenv('OLLAMA_SERVICE_PORT')}"
 OLLAMA_API_URL = f"{OLLAMA_SERVICE_URL}/api/generate"
 MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
+
+# parametros de comportamento do chat na aplicação
+CHAT_MESSAGES_HIST = 5
+STREAM_DELAY = 0.04
