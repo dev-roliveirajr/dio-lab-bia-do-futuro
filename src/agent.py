@@ -14,20 +14,15 @@ dstransacoes = pd.read_csv('data/transacoes.csv')
 # Create the app
 
 # contexts
-contexto = f"""
+contexto = f"""INFORMAÇÕES DE CONTEXTO: 
 CLIENTE: {dsperfil['nome']}, {dsperfil['idade']} anos, perfil de investidor: {dsperfil['perfil_investidor']}, aceita risco: {"sim" if dsperfil['aceita_risco'] else "não"}
 RENDA MENSAL: R$ {dsperfil['renda_mensal']}
 OBJETIVO: {dsperfil['objetivo_principal']}
 PATRIMÔNIO: R$ {dsperfil['patrimonio_total']} | RESERVA: R$ {dsperfil['reserva_emergencia_atual']}
-
 METAS: {', '.join([m['meta'] for m in dsperfil['metas']])}
-
-HISTÓRICO DE ATENDIMENTO: {dshistorico.to_dict(orient='records')}
-
-TRANSACOES: {dstransacoes.to_dict(orient='records')}
-
-PRODUTOS FINANCEIROS: {dsprodutos}
-"""
+HISTÓRICO DE ATENDIMENTO: {dshistorico.tail(5).to_dict(orient='records')}
+TRANSACOES: {dstransacoes.tail(50).to_dict(orient='records')}
+PRODUTOS FINANCEIROS: {dsprodutos}"""
 
 SYSTEM_PROMPT = """Você é Luma, uma agente financeira inteligente da instituição.
 Seu objetivo é ajudar o cliente a tomar decisões financeiras mais seguras e estratégicas, antecipando riscos e oportunidades com base em dados reais e promovendo maior previsibilidade e autonomia financeira.
@@ -59,21 +54,30 @@ FORMATO DAS RESPOSTAS:
 - Ofereça uma simulação ou próximo passo. """
 
 # Function to get response from the model
-def get_response(user_input):
-    prompt = f"""
-    {SYSTEM_PROMPT}
+def get_response(user_input, history=[]):
+    messages = [
+        {"role": "system", "content": f"{SYSTEM_PROMPT} | {contexto}"},
+    ]
 
-    CONTEXTO:
-    {contexto}
-
-    PERGUNTA: {user_input}
-    """
+    # adiciona histórico limitado
+    print(f"HISTORICO DA CONVERSA: {history}")
+    messages += history  # cada item: {"role": "user"/"assistant", "content": "..."}
+    
+    # adiciona a pergunta atual
+    messages.append({"role": "user", "content": user_input})
 
     payload = {
         "model": MODEL_NAME,
-        "prompt": prompt,
+        "messages": messages,   # <- agora usa 'messages' ao invés de 'prompt'
         "stream": False
     }
-    
+
     response = requests.post(OLLAMA_API_URL, json=payload)
-    return response.json()['response']
+    data = response.json()
+
+    # capturar a resposta do modelo
+    try:
+        return data['choices'][0]['message']['content']
+    except (KeyError, IndexError):
+        # fallback caso algo dê errado
+        return "Não foi possível gerar uma resposta"

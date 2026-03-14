@@ -5,7 +5,7 @@ load_dotenv()
 
 # parametros para utilização do serviço de LLM
 OLLAMA_SERVICE_URL = f"{os.getenv('OLLAMA_SERVICE_HOST')}:{os.getenv('OLLAMA_SERVICE_PORT')}"
-OLLAMA_API_URL = f"{OLLAMA_SERVICE_URL}/api/generate"
+OLLAMA_API_URL = f"{OLLAMA_SERVICE_URL}/v1/chat/completions"
 MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
 
 # parametros de comportamento do chat na aplicação

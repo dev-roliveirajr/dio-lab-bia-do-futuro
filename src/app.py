@@ -33,7 +33,7 @@ if pergunta := st.chat_input("Faça sua pergunta para a Luma:"):
     print(f"usuario perguntou: {pergunta}")
 
     with st.spinner("Luma está pensando..."):
-        resposta = agent.get_response(st.session_state.messages)
+        resposta = agent.get_response(pergunta, st.session_state.messages)
         
     print(f"assistente respondeu: {resposta}")
 
@@ -54,7 +54,7 @@ if pergunta := st.chat_input("Faça sua pergunta para a Luma:"):
         {"role": "assistant", "content": resposta}
     )
 
-    # somente as últimas 10 mensagens para evitar que os tokens explodam
+    # somente as últimas X mensagens para evitar que os tokens explodam
     st.session_state.messages = st.session_state.messages[-CHAT_MESSAGES_HIST:]    
 
     
