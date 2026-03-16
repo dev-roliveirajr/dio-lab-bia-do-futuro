@@ -11,3 +11,7 @@ MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
 # parametros de comportamento do chat na aplicação
 CHAT_MESSAGES_HIST = 5
 STREAM_DELAY = 0.04
+TEMPERATURE = 0.2
+TOP_P = 0.8
+NUM_PREDICT = 100
+REPEAT_PENALTY = 1.1

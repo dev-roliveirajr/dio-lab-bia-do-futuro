@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+
+  app:
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+      - "5678:5678"
+
+    command: >
+      python -m debugpy
+      --listen 0.0.0.0:5678
+      --wait-for-client
+      -m streamlit run src/app.py
+      --server.port ${APP_PORT}
+      --server.address 0.0.0.0

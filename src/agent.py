@@ -4,7 +4,7 @@ import json
 import requests
 
 # Load the data
-from config import OLLAMA_API_URL, MODEL_NAME
+from config import OLLAMA_API_URL, MODEL_NAME, TEMPERATURE, TOP_P, NUM_PREDICT, REPEAT_PENALTY
 
 dsperfil = json.load(open('data/perfil_investidor.json'))
 dsprodutos = json.load(open('data/produtos_financeiros.json'))
@@ -60,16 +60,21 @@ def get_response(user_input, history=[]):
     ]
 
     # adiciona histórico limitado
-    print(f"HISTORICO DA CONVERSA: {history}")
     messages += history  # cada item: {"role": "user"/"assistant", "content": "..."}
     
     # adiciona a pergunta atual
-    messages.append({"role": "user", "content": user_input})
+    #messages.append({"role": "user", "content": user_input})
 
     payload = {
         "model": MODEL_NAME,
         "messages": messages,   # <- agora usa 'messages' ao invés de 'prompt'
-        "stream": False
+        "stream": False,
+        "options": {
+            "temperature": TEMPERATURE,
+            "top_p": TOP_P,
+            "num_predict": NUM_PREDICT,
+            "repeat_penalty": REPEAT_PENALTY
+        }
     }
 
     response = requests.post(OLLAMA_API_URL, json=payload)
