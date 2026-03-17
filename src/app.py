@@ -30,9 +30,9 @@ if pergunta := st.chat_input("Faça sua pergunta para a Luma:"):
         {"role": "user", "content": pergunta}
     )
 
-    with st.spinner("Luma está pensando..."):
+    with st.spinner("Trabalhando na melhor resposta..."):
         # somente as últimas X mensagens para evitar que os tokens explodam
-        MAX_MESSAGES = CHAT_MESSAGES_HIST_ITERATIONS * 2
+        MAX_MESSAGES = (CHAT_MESSAGES_HIST_ITERATIONS * 2) - 1  # isso faz que tenhamos sempre par de pergunta e resposta 
         resposta = agent.get_response(st.session_state.messages[-MAX_MESSAGES:])
 
     # adiciona resposta no histórico
