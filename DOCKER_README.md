@@ -330,6 +330,103 @@ Configure estas variáveis para customizar o comportamento:
 
 ---
 
+## 🔧 Modo Debug com Docker + VS Code
+
+Para desenvolvimento com depuração (debug), use um `docker-compose.debug.yml` separado e configure o VS Code para anexar ao container.
+
+### 1) Arquivo `docker-compose.debug.yml`
+
+Crie (ou confirme) este arquivo na raiz:
+
+```yaml
+version: "3.8"
+
+services:
+  app:
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+      - "5678:5678"
+    command: >
+      python -m debugpy
+      --listen 0.0.0.0:5678
+      --wait-for-client
+      -m streamlit run src/app.py
+      --server.port ${APP_PORT}
+      --server.address 0.0.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+```
+
+> O `--wait-for-client` pausa a aplicação até o VS Code anexar o depurador.
+
+### 2) `launch.json` para anexar no VS Code
+
+No `.vscode/launch.json`, adicione ou confirme esta configuração:
+
+```json
+{
+ "version": "0.2.0",
+ "configurations": [
+  {
+   "name": "Attach Docker Luma Agent",
+   "type": "python",
+   "request": "attach",
+   "connect": {
+     "host": "localhost",
+     "port": 5678
+   },
+   "pathMappings": [
+     {
+       "localRoot": "${workspaceFolder}/src",
+       "remoteRoot": "/app/src"
+     }
+   ]
+  }
+ ]
+}
+```
+
+### 3) Iniciar em modo debug
+
+No terminal do projeto, execute:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.debug.yml up
+```
+
+### 4) Parar em modo debug
+
+Sempre use o comando com os dois arquivos para evitar containers órfãos:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.debug.yml down
+```
+
+### 5) Anexar o depurador no VS Code
+
+1. Abra a paleta (`Ctrl+Shift+P`) e escolha `Debug: Start Debugging` ou use o painel de execução.
+2. Selecione `Attach Docker Luma Agent`.
+3. A execução deve continuar e você poderá colocar breakpoints no código.
+
+> Se o VS Code falhar ao anexar, verifique se o container está rodando e se a porta `5678` está exposta corretamente.
+
+### 6) Dicas importantes
+
+- Use `docker compose -f docker-compose.yml -f docker-compose.debug.yml logs -f app` para ver mensagens de debug.
+- Certifique-se de mapear o volume (`.:/app`) para editar código em tempo real.
+- Para sair, pare com `docker compose -f docker-compose.yml -f docker-compose.debug.yml down` e execute novamente após mudanças.
+
+
+---
+
 ## Performance e Recursos
 
 ### Recomendações de hardware

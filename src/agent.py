@@ -4,7 +4,7 @@ import json
 import requests
 
 # Load the data
-from config import OLLAMA_API_URL, MODEL_NAME, TEMPERATURE, TOP_P, NUM_PREDICT, REPEAT_PENALTY
+from config import OLLAMA_API_URL, MODEL_NAME, ENVIAR_PARAMETROS_OPCIONAIS, TEMPERATURE, TOP_P, NUM_PREDICT, REPEAT_PENALTY
 
 dsperfil = json.load(open('data/perfil_investidor.json'))
 dsprodutos = json.load(open('data/produtos_financeiros.json'))
@@ -47,35 +47,49 @@ REGRAS:
 6. Não substitua aconselhamento humano quando houver alto risco financeiro.
 7. Nunca solicite ou exponha informações sensíveis como senhas.
 8. Seja clara, objetiva e educativa.
+9. Foque no tema "Finanças". Se a pergunta não for relacionada ao tema, responda "Eu gostaria muito de ajudar más estou aqui para falar sobre finanças. Outros assuntos podem ser tratdos com outro agente."
+
+SOBRE AS TRANSAÇÕES:
+Toda transação está descrita com este padrão: "2025-12-25,Museu,lazer,61.34,saida"
+Vou explicar cada parte de uma transação: 
+No exemplo: "2025-12-25,Museu,lazer,61.34,saida":
+2025-12-25 = data da transação no padrão AAAA-MM-DD;
+Museu = subcategoria da transação;
+lazer = categoria da trnasação. Uma categoria contém mais de uma subcategoria;
+61.34 = valor da transação. Na modeda REAL fica R$ 61,34;
+saida = tipo de operação. "saida" siginifica "despesa" e entrada significa "receita". Se perguntar sobre despesas, foque nas "saidas". se perguntar sobre receitas, foque nas "entradas".
 
 FORMATO DAS RESPOSTAS:
-- Comece com um insight ou análise baseada em dados.
-- Explique o raciocínio.
-- Ofereça uma simulação ou próximo passo. """
+- Seja simples e direta.
+- Apenas se for solicitado, explique o raciocínio.
+- Ofereça uma simulação ou próximo passo caso seja solictado. """
 
 # Function to get response from the model
-def get_response(user_input, history=[]):
+def get_response(user_input=None):
+    if user_input is None:
+        user_input = []
+        
     messages = [
         {"role": "system", "content": f"{SYSTEM_PROMPT} | {contexto}"},
     ]
 
     # adiciona histórico limitado
-    messages += history  # cada item: {"role": "user"/"assistant", "content": "..."}
-    
-    # adiciona a pergunta atual
-    #messages.append({"role": "user", "content": user_input})
+    messages += user_input  # cada item: {"role": "user"/"assistant", "content": "..."}
 
     payload = {
         "model": MODEL_NAME,
         "messages": messages,   # <- agora usa 'messages' ao invés de 'prompt'
-        "stream": False,
-        "options": {
+        "stream": False
+    }
+
+    # verifica se envia parametros opcionais no payload
+    if ENVIAR_PARAMETROS_OPCIONAIS:
+        payload[options] = {
             "temperature": TEMPERATURE,
             "top_p": TOP_P,
             "num_predict": NUM_PREDICT,
             "repeat_penalty": REPEAT_PENALTY
         }
-    }
 
     response = requests.post(OLLAMA_API_URL, json=payload)
     data = response.json()

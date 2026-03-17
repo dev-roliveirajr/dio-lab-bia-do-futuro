@@ -4,7 +4,7 @@ import time
 import agent
 
 # Load the data
-from config import STREAM_DELAY, CHAT_MESSAGES_HIST 
+from config import STREAM_DELAY, CHAT_MESSAGES_HIST_ITERATIONS 
 
 # interface
 st.title("💡Luma, luz e prosperidade financeira!")
@@ -21,17 +21,19 @@ for message in st.session_state.messages:
 # input do usuário
 if pergunta := st.chat_input("Faça sua pergunta para a Luma:"):
     
+    # mostra pergunta
+    with st.chat_message("user"):
+        st.write(pergunta)
+
     # adiciona pergunta no histórico
     st.session_state.messages.append(
         {"role": "user", "content": pergunta}
     )
 
-    # mostra pergunta
-    with st.chat_message("user"):
-        st.write(pergunta)
-
     with st.spinner("Luma está pensando..."):
-        resposta = agent.get_response(pergunta, st.session_state.messages)
+        # somente as últimas X mensagens para evitar que os tokens explodam
+        MAX_MESSAGES = CHAT_MESSAGES_HIST_ITERATIONS * 2
+        resposta = agent.get_response(st.session_state.messages[-MAX_MESSAGES:])
 
     # adiciona resposta no histórico
     st.session_state.messages.append(
@@ -49,8 +51,7 @@ if pergunta := st.chat_input("Faça sua pergunta para a Luma:"):
             time.sleep(STREAM_DELAY)
 
         placeholder.markdown(texto)
-    
-    # somente as últimas X mensagens para evitar que os tokens explodam
-    st.session_state.messages = st.session_state.messages[-CHAT_MESSAGES_HIST:]    
+
+
 
     
