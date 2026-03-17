@@ -9,7 +9,7 @@ OLLAMA_API_URL = f"{OLLAMA_SERVICE_URL}/v1/chat/completions"
 MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME")
 
 # parametros de comportamento do chat na aplicação
-CHAT_MESSAGES_HIST_ITERATIONS = 3
+CHAT_MESSAGES_HIST_ITERATIONS = 5
 STREAM_DELAY = 0.04
 
 # parametros de comportamento do modelo LLM
