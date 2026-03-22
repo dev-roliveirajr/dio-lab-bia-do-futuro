@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 
-echo "Iniciando Ollama..."
+echo "Iniciando start-ollama.sh..."
 
 ollama serve &
 
@@ -15,6 +16,6 @@ else
     ollama pull "$OLLAMA_MODEL_NAME"
 fi
 
-echo "Ollama pronto."
+echo "Terminando start-ollama.sh..."
 
 wait

@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
 
   ollama:
@@ -8,9 +6,15 @@ services:
     ports:
       - "${OLLAMA_SERVICE_PORT}:${OLLAMA_SERVICE_PORT}"
     mem_limit: ${OLLAMA_MEMORY_LIMIT}
+    gpus: ${DOCKER_USE_GPU}
     environment:
       - OLLAMA_HOST=0.0.0.0:${OLLAMA_SERVICE_PORT}
       - OLLAMA_MODEL_NAME=${OLLAMA_MODEL_NAME}
+      - OLLAMA_NUM_THREADS=${OLLAMA_NUM_THREADS}
+      - OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH}
+      - OLLAMA_BATCH_SIZE=${OLLAMA_BATCH_SIZE}
+      - GGML_CUDA_FORCE_MMQ=${GGML_CUDA_FORCE_MMQ}
+      - OLLAMA_KEEP_ALIVE=${OLLAMA_KEEP_ALIVE}
     volumes:
       - ollama-data:/root/.ollama
       - ./start-ollama.sh:/start-ollama.sh
@@ -18,13 +22,12 @@ services:
     env_file:
       - .env
     restart: unless-stopped
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD-SHELL", "ollama run $OLLAMA_MODEL_NAME \"ping\" >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
 
   app:
     build:
@@ -34,13 +37,12 @@ services:
     ports:
       - "${APP_PORT}:${APP_PORT}"
     depends_on:
-      - ollama
+      ollama:
+        condition: service_healthy
     env_file:
       - .env
     environment:
       - OLLAMA_SERVICE_URL=${OLLAMA_SERVICE_HOST}:${OLLAMA_SERVICE_PORT}
-      - OLLAMA_MODEL_NAME=${OLLAMA_MODEL_NAME}
-      - OLLAMA_KEEP_ALIVE=${OLLAMA_KEEP_ALIVE}
     volumes:
         - ./src:/app/src
         - ./data:/app/data
