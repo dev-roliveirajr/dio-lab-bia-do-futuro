@@ -8,11 +8,29 @@ from config import OLLAMA_API_URL, MODEL_NAME, ENVIAR_PARAMETROS_OPCIONAIS, TEMP
 
 dsperfil = json.load(open('data/perfil_investidor.json'))
 dsprodutos = json.load(open('data/produtos_financeiros.json'))
-dshistorico = pd.read_csv('data/historico_atendimento.csv')    
-dstransacoes = pd.read_csv('data/transacoes.csv')
 
+dshistorico = pd.read_csv('data/historico_atendimento.csv').tail(5)
+
+dstransacoes = pd.read_csv('data/transacoes.csv').tail(20)
 df_saida = dstransacoes[dstransacoes["tipo"] == "saida"]
 df_entrada = dstransacoes[dstransacoes["tipo"] == "entrada"]
+
+def agrupar_transacoes_por_categoria(tipo: str) -> str:
+    """Agrupa transações pelo tipo informado usando a fração já carregada em dstransacoes."""
+    tipo = tipo.lower().strip()
+    if tipo not in {"saida", "entrada"}:
+        raise ValueError("Tipo deve ser 'saida' ou 'entrada'.")
+
+    df_tipo = dstransacoes[dstransacoes["tipo"] == tipo]
+    if tipo == "saida":
+        agrupamento = df_tipo.groupby("categoria")["valor"].sum()
+        linhas = [f"- Gastos com {categoria}: {total}" for categoria, total in agrupamento.items()]
+    else:
+        agrupamento = df_tipo.groupby("descricao")["valor"].sum()
+        linhas = [f"- Receita de {descricao}: {total}" for descricao, total in agrupamento.items()]
+
+    return "\n".join(linhas) + "\n" if linhas else ""
+
 
 total_saida = df_saida["valor"].sum()
 total_entrada = df_entrada["valor"].sum()
@@ -97,6 +115,13 @@ Para cálculos:
 Exemplo:
 "Você gastou R$ 1.250,00 com alimentação."
 
+Sobre os termos:
+Receitas: Representa todas as entradas de dinheiro, ou seja, o que o cliente ganha.
+Despesas: Representa Todas as saídas de dinheiro, ou seja, o que o cliente gasta no seu dia a dia.
+Saldo: É a soma das Receitas menos ( - ) a soma das Despesas. 
+Se o saldo for positivo, o cliente tem o saldo para investir.
+Se o saldo for negativo, o cliente não tem saldo para fazer investimentos.
+
 Para análises:
 1. Resumo
 2. Conclusão
@@ -126,14 +151,21 @@ RENDA MENSAL: R$ {dsperfil['renda_mensal']} \n
 OBJETIVO: {dsperfil['objetivo_principal']} \n
 PATRIMÔNIO: R$ {dsperfil['patrimonio_total']} | RESERVA: R$ {dsperfil['reserva_emergencia_atual']} \n
 METAS: {', '.join([m['meta'] for m in dsperfil['metas']])} \n
-HISTÓRICO DE ATENDIMENTO:\n {dshistorico.tail(5).to_csv(index=False, header=True)} \n
+HISTÓRICO DE ATENDIMENTO:\n {dshistorico.to_csv(index=False, header=True)} \n
 PRODUTOS FINANCEIROS:\n {dsprodutos} \n
-TRANSACOES:\n {dstransacoes.tail(20).to_csv(index=False, header=True)} \n 
+TRANSACOES:\n {dstransacoes.to_csv(index=False, header=True)} \n 
+
+Transações agrupadas caso precise da informação: \n
+Entradas:\n
+{agrupar_transacoes_por_categoria("entrada")} \n
+Saídas:\n
+{agrupar_transacoes_por_categoria("saida")} \n
 
 Resumo calculado das transações: \n
 - Total receitas: {total_entrada} \n
 - Total despesas: {total_saida} \n
 - Saldo: {saldo} \n """
+
 
 # Function to get response from the model
 def get_response(user_input=None):
